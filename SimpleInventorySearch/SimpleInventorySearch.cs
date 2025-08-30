@@ -15,7 +15,7 @@ namespace SimpleInventorySearch;
 
 public class SimpleInventorySearch : ResoniteMod
 {
-    public const string VERSION = "1.0.0";
+    public const string VERSION = "1.0.1";
     public override string Name => "SimpleInventorySearch";
     public override string Author => "art0007i";
     public override string Version => VERSION;
@@ -112,7 +112,7 @@ public class SimpleInventorySearch : ResoniteMod
                 {
                     s.RunInUpdates(0, () =>
                     {
-                        DoFilter(s, filterDict.GetOrCreateValue(__instance), true);
+                        DoFilter(s, filterDict.GetValue(__instance, (k)=>""), true);
                     });
                 };
 
@@ -121,7 +121,7 @@ public class SimpleInventorySearch : ResoniteMod
                 {
                     s.RunInUpdates(0, () =>
                     {
-                        DoFilter(s, filterDict.GetOrCreateValue(__instance), false);
+                        DoFilter(s, filterDict.GetValue(__instance, (k) => ""), false);
                     });
                 };
         }
